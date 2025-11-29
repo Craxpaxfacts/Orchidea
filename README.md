@@ -7,4 +7,5 @@
 - Tailwind CSS  
 - Framer Motion  
 - three  
-- @tsparticles/react  
+  
+
