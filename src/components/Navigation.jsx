@@ -14,53 +14,55 @@ const Navigation = () => {
 
   return (
     <motion.nav
-      initial={{ opacity: 0, y: -20 }}
+      initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 2.5, duration: 0.8 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'glass-strong py-2' : 'glass py-4'
-      }`}
+      transition={{ delay: 2.2, duration: 0.7 }}
+      className="fixed inset-x-0 top-4 z-50 flex justify-center pointer-events-none"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0">
-            <a href="#home" className="text-2xl font-bold font-mono tracking-tighter">
-              <span className="text-orchid-500">&lt;</span>
+      <div
+        className={`pointer-events-auto w-full max-w-4xl px-4 transition-all duration-300 ${
+          scrolled ? 'scale-95 opacity-95' : 'scale-100 opacity-100'
+        }`}
+      >
+        <div className="flex items-center justify-between rounded-full border border-white/10 bg-gradient-to-r from-purple-700/60 via-fuchsia-600/40 to-indigo-700/60 px-6 py-3 backdrop-blur-2xl shadow-[0_0_40px_rgba(139,92,246,0.45)]">
+          {/* Logo / Brand */}
+          <a
+            href="#home"
+            className="flex items-center gap-2 text-sm font-semibold tracking-tight text-white"
+          >
+            <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-orchid-500 text-lg">
+              &lt;/&gt;
+            </span>
+            <span className="font-mono text-base md:text-lg">
+              <span className="text-orchid-300">&lt;</span>
               Orchidea
-              <span className="text-orchid-500">/&gt;</span>
+              <span className="text-orchid-300">/&gt;</span>
+            </span>
+          </a>
+
+          {/* Desktop nav links */}
+          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-white/80">
+            <a href="#services" className="hover:text-white transition-colors">
+              Services
+            </a>
+            <a href="#portfolio" className="hover:text-white transition-colors">
+              Portfolio
+            </a>
+            <a href="#tech" className="hover:text-white transition-colors">
+              Stack
+            </a>
+            <a
+              href="#contact"
+              className="rounded-full border border-white/30 bg-white/5 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-white/15 hover:border-white/60 transition-colors"
+            >
+              Get in touch
             </a>
           </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <a
-                href="#services"
-                className="hover:text-orchid-500 transition px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Services
-              </a>
-              <a
-                href="#portfolio"
-                className="hover:text-orchid-500 transition px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Portfolio
-              </a>
-              <a
-                href="#tech"
-                className="hover:text-orchid-500 transition px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Stack
-              </a>
-              <a
-                href="#contact"
-                className="px-5 py-2 rounded-full border border-orchid-500 text-orchid-500 hover:bg-orchid-500 hover:text-white transition text-sm font-medium"
-              >
-                Get in touch
-              </a>
-            </div>
-          </div>
-          <div className="md:hidden">
-            <button className="text-orchid-500">
-              <i className="fas fa-bars text-xl"></i>
+
+          {/* Mobile burger */}
+          <div className="md:hidden flex items-center">
+            <button className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-orchid-100">
+              <i className="fas fa-bars text-lg"></i>
             </button>
           </div>
         </div>
