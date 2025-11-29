@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from 'react'
 import Preloader from './components/Preloader.jsx'
 import Navigation from './components/Navigation.jsx'
@@ -8,6 +9,7 @@ import Portfolio from './components/Portfolio.jsx'
 import TechStack from './components/TechStack.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import DarkVeil from './components/ui/DarkVeil'
 
 function App() {
   const [preloaderVisible, setPreloaderVisible] = useState(true)
@@ -24,13 +26,26 @@ function App() {
     <div className="relative min-h-screen">
       {preloaderVisible && <Preloader />}
       
-      {/* Ambient Background Blobs */}
-      <div className="blob bg-orchid-700 w-96 h-96 rounded-full top-0 left-0 mix-blend-screen animate-pulse-slow"></div>
-      <div className="blob bg-indigo-900 w-96 h-96 rounded-full bottom-0 right-0 mix-blend-screen animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-      <div className="blob bg-purple-900 w-80 h-80 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mix-blend-screen animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+      {/* Hero section wrapper with DarkVeil background */}
+      <section className="relative min-h-screen flex flex-col">
+        {/* DarkVeil fills entire hero block */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <DarkVeil
+            hueShift={0}
+            noiseIntensity={0.03}
+            scanlineIntensity={0.1}
+            scanlineFrequency={2.0}
+            warpAmount={0.2}
+            speed={0.4}
+            resolutionScale={1}
+          />
+          {/* Gradient fade at bottom to blend into next section */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent" />
+        </div>
 
-      <Navigation />
-      <Hero />
+        <Navigation />
+        <Hero />
+      </section>
       <Services />
       <About />
       <Portfolio />

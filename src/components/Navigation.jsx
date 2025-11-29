@@ -17,14 +17,15 @@ const Navigation = () => {
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 2.2, duration: 0.7 }}
-      className="fixed inset-x-0 top-4 z-50 flex justify-center pointer-events-none"
+      className="fixed inset-x-0 top-6 z-50 flex justify-center pointer-events-none"
     >
       <div
-        className={`pointer-events-auto w-full max-w-4xl px-4 transition-all duration-300 ${
-          scrolled ? 'scale-95 opacity-95' : 'scale-100 opacity-100'
+        className={`pointer-events-auto w-full max-w-3xl px-6 transition-all duration-300 ${
+          scrolled ? 'scale-95 opacity-90' : 'scale-100 opacity-100'
         }`}
       >
-        <div className="flex items-center justify-between rounded-full border border-white/10 bg-gradient-to-r from-purple-700/60 via-fuchsia-600/40 to-indigo-700/60 px-6 py-3 backdrop-blur-2xl shadow-[0_0_40px_rgba(139,92,246,0.45)]">
+        {/* Glass nav bar (React Bits style) */}
+        <div className="flex items-center justify-between rounded-full border border-white/10 bg-black/70 px-6 py-3 backdrop-blur-2xl shadow-[0_18px_45px_rgba(0,0,0,0.9)]">
           {/* Logo / Brand */}
           <a
             href="#home"
@@ -41,7 +42,7 @@ const Navigation = () => {
           </a>
 
           {/* Desktop nav links */}
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-white/80">
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/80">
             <a href="#services" className="hover:text-white transition-colors">
               Services
             </a>
@@ -72,6 +73,4 @@ const Navigation = () => {
 }
 
 export default Navigation
-
-
 
